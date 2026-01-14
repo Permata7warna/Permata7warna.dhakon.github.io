@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Permainan Dhakon/Congklak</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/theme-preview.css">
+    <link rel="stylesheet" href="css/instructions.css">
+</head>
+<body class="theme-default">
+    <div class="container">
+        <header>
+            <h1>Permainan Dhakon/Congklak</h1>
+            <div class="menu">
+                <button id="newGameBtn">Permainan Baru</button>
+                <button id="themeBtn">Ganti Tampilan</button>
+                <button id="helpBtn">Cara Bermain</button>
+            </div>
+        </header>
+
+        <main>
+            <div class="game-status">
+                <div id="player-turn" class="player-turn">Giliran: Pemain 1</div>
+                <div id="game-message" class="game-message"></div>
+            </div>
+
+            <div class="board-container">
+                <div class="board">
+                    <!-- Lumbung Pemain 2 -->
+                    <div class="store" id="store-1">
+                        <div class="store-label">Lumbung Pemain 2</div>
+                        <div class="seeds-count">0</div>
+                    </div>
+                    
+                    <div class="pits-container">
+                        <!-- Lubang Pemain 2 -->
+                        <div class="pits player-2">
+                            <div class="pit" id="pit-12">
+                                <div class="seeds-count">7</div>
+                            </div>
+                            <div class="pit" id="pit-11">
+                                <div class="seeds-count">7</div>
+                            </div>
+                            <div class="pit" id="pit-10">
+                                <div class="seeds-count">7</div>
+                            </div>
+                            <div class="pit" id="pit-9">
+                                <div class="seeds-count">7</div>
+                            </div>
+                            <div class="pit" id="pit-8">
+                                <div class="seeds-count">7</div>
+                            </div>
+                            <div class="pit" id="pit-7">
+                                <div class="seeds-count">7</div>
+                            </div>
+                            <div class="pit" id="pit-6">
+                                <div class="seeds-count">7</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Lubang Pemain 1 -->
+                        <div class="pits player-1">
+                            <div class="pit" id="pit-0">
+                                <div class="seeds-count">7</div>
+                            </div>
+                            <div class="pit" id="pit-1">
+                                <div class="seeds-count">7</div>
+                            </div>
+                            <div class="pit" id="pit-2">
+                                <div class="seeds-count">7</div>
+                            </div>
+                            <div class="pit" id="pit-3">
+                                <div class="seeds-count">7</div>
+                            </div>
+                            <div class="pit" id="pit-4">
+                                <div class="seeds-count">7</div>
+                            </div>
+                            <div class="pit" id="pit-5">
+                                <div class="seeds-count">7</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Lumbung Pemain 1 -->
+                    <div class="store" id="store-0">
+                        <div class="store-label">Lumbung Pemain 1</div>
+                        <div class="seeds-count">0</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Modal untuk Cara Bermain -->
+        <div id="helpModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Cara Bermain Dhakon/Congklak</h2>
+                
+                <div class="instructions-tabs">
+                    <div class="instructions-tab active" data-tab="basics">Dasar</div>
+                    <div class="instructions-tab" data-tab="rules">Aturan</div>
+                    <div class="instructions-tab" data-tab="strategy">Strategi</div>
+                    <div class="instructions-tab" data-tab="app">Aplikasi</div>
+                </div>
+                
+                <div class="instructions">
+                    <!-- Tab Dasar -->
+                    <div class="instructions-content active" id="basics-content">
+                        <h3>Apa itu Dhakon/Congklak?</h3>
+                        <p>Dhakon (Lampung) atau Congklak (Jawa) adalah permainan tradisional Indonesia yang dimainkan di atas papan dengan lubang-lubang yang berisi biji-bijian atau kerang kecil. Permainan ini melatih kemampuan berhitung dan strategi.</p>
+                        
+                        <div class="instruction-image-container">
+                            <div class="demo-board">
+                                <div class="demo-store"></div>
+                                <div class="demo-pits">
+                                    <div class="demo-row">
+                                        <div class="demo-pit"></div>
+                                        <div class="demo-pit"></div>
+                                        <div class="demo-pit"></div>
+                                        <div class="demo-pit"></div>
+                                        <div class="demo-pit"></div>
+                                        <div class="demo-pit"></div>
+                                        <div class="demo-pit"></div>
+                                    </div>
+                                    <div class="demo-row">
+                                        <div class="demo-pit"></div>
+                                        <div class="demo-pit"></div>
+                                        <div class="demo-pit"></div>
+                                        <div class="demo-pit"></div>
+                                        <div class="demo-pit"></div>
+                                        <div class="demo-pit"></div>
+                                        <div class="demo-pit"></div>
+                                    </div>
+                                </div>
+                                <div class="demo-store"></div>
+                            </div>
+                            <div class="instruction-caption">Papan Congklak dengan 7 lubang kecil untuk setiap pemain dan 2 lubang besar (lumbung) di kedua ujungnya</div>
+                        </div>
+                        
+                        <h3>Persiapan</h3>
+                        <div class="instruction-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <p>Permainan dimainkan oleh 2 orang dengan papan yang memiliki 14 lubang kecil (7 untuk setiap pemain) dan 2 lubang besar (lumbung) di kedua ujungnya.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="instruction-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <p>Setiap lubang kecil diisi dengan 7 biji. Lubang besar (lumbung) dibiarkan kosong.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="instruction-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <p>Pemain 1 memiliki 7 lubang di baris bawah dan lumbung di kanan.</p>
+                                <p>Pemain 2 memiliki 7 lubang di baris atas dan lumbung di kiri.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="instruction-note">
+                            <p><strong>Catatan:</strong> Dalam versi tradisional, biji yang digunakan biasanya adalah biji asam, biji sawo, kerang, atau batu kecil. Dalam aplikasi ini, kami menggunakan representasi visual dari biji-bijian tersebut.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Tab Aturan -->
+                    <div class="instructions-content" id="rules-content">
+                        <h3>Aturan Dasar</h3>
+                        <ol>
+                            <li>Pemain yang mendapat giliran memilih salah satu lubang miliknya yang berisi biji.</li>
+                            <li>Biji dari lubang tersebut diambil dan dibagikan satu per satu ke lubang berikutnya searah jarum jam, termasuk lumbung miliknya, tetapi <span class="instruction-highlight">melewati lumbung lawan</span>.</li>
+                            <li>Jika biji terakhir jatuh di lumbung miliknya, pemain mendapat giliran tambahan.</li>
+                            <li>Jika biji terakhir jatuh di lubang kosong miliknya, pemain dapat mengambil semua biji dari lubang seberang milik lawan dan memasukkannya ke lumbung miliknya.</li>
+                            <li>Permainan berakhir ketika semua lubang milik salah satu pemain kosong.</li>
+                            <li>Sisa biji yang masih ada di lubang-lubang pemain lainnya dimasukkan ke lumbung pemain tersebut.</li>
+                            <li>Pemain dengan jumlah biji terbanyak di lumbungnya adalah pemenang.</li>
+                        </ol>
+                        
+                        <h3>Aturan Khusus</h3>
+                        
+                        <h4>Giliran Tambahan</h4>
+                        <p>Jika biji terakhir jatuh di lumbung milik pemain, pemain tersebut mendapat giliran tambahan. Ini bisa terjadi beberapa kali berturut-turut jika pemain berhasil mengakhiri gilirannya di lumbung.</p>
+                        
+                        <div class="instruction-image-container">
+                            <div class="demo-board">
+                                <div class="demo-store"></div>
+                                <div class="demo-pits">
+                                    <div class="demo-row">
+                                        <div class="demo-pit"></div>
+                                        <div class="demo-pit"></div>
+                                        <div class="demo-pit"></div>
+                                        <div class="demo-pit"></div>
+                                        <div class="demo-pit"></div>
+                                        <div class="demo-pit"></div>
+                                        <div class="demo-pit"></div>
+                                    </div>
+                                    <div class="demo-row">
+                                        <div class="demo-pit"></div>
+                                        <div class="demo-pit"></div>
+                                        <div class="demo-pit"></div>
+                                        <div class="demo-pit"></div>
+                                        <div class="demo-pit"></div>
+                                        <div class="demo-pit"></div>
+                                        <div class="demo-pit demo-active"></div>
+                                    </div>
+                                </div>
+                                <div class="demo-store demo-highlight"></div>
+                            </div>
+                            <div class="instruction-caption">Jika biji terakhir jatuh di lumbung, pemain mendapat giliran tambahan</div>
+                        </div>
+                        
+                        <h4>Pengambilan Biji (Nembak)</h4>
+                        <p>Jika biji terakhir jatuh di lubang kosong milik pemain, dan lubang seberang milik lawan berisi biji, pemain dapat mengambil semua biji dari kedua lubang tersebut dan memasukkannya ke lumbung miliknya. Ini sering disebut "nembak" atau "menembak".</p>
+                        
+                        <div class="instruction-image-container">
+                            <div class="demo-board">
+                                <div class="demo-store"></div>
+                                <div class="demo-pits">
+                                    <div class="demo-row">
+                                        <div class="demo-pit"></div>
+                                        <div class="demo-pit"></div>
+                                        <div class="demo-pit demo-highlight"></div>
+                                        <div class="demo-pit"></div>
+                                        <div class="demo-pit"></div>
+                                        <div class="demo-pit"></div>
+                                        <div class="demo-pit"></div>
+                                    </div>
+                                    <div class="demo-row">
+                                        <div class="demo-pit"></div>
+                                        <div class="demo-pit"></div>
+                                        <div class="demo-pit demo-active"></div>
+                                        <div class="demo-pit"></div>
+                                        <div class="demo-pit"></div>
+                                        <div class="demo-pit"></div>
+                                        <div class="demo-pit"></div>
+                                    </div>
+                                </div>
+                                <div class="demo-store"></div>
+                            </div>
+                            <div class="instruction-caption">Jika biji terakhir jatuh di lubang kosong milik pemain, biji dari lubang seberang dapat diambil</div>
+                        </div>
+                        
+                        <h4>Akhir Permainan</h4>
+                        <p>Permainan berakhir ketika semua lubang milik salah satu pemain kosong. Sisa biji yang masih ada di lubang-lubang pemain lainnya dimasukkan ke lumbung pemain tersebut. Pemain dengan jumlah biji terbanyak di lumbungnya adalah pemenang.</p>
+                    </div>
+                    
+                    <!-- Tab Strategi -->
+                    <div class="instructions-content" id="strategy-content">
+                        <h3>Strategi Dasar</h3>
+                        <p>Congklak adalah permainan strategi yang membutuhkan perencanaan dan perhitungan. Berikut beberapa strategi dasar yang bisa Anda gunakan:</p>
+                        
+                        <h4>1. Prioritaskan Giliran Tambahan</h4>
+                        <p>Usahakan untuk mengakhiri giliran di lumbung Anda sendiri untuk mendapatkan giliran tambahan. Ini memungkinkan Anda untuk mengumpulkan lebih banyak biji sebelum giliran lawan.</p>
+                        
+                        <h4>2. Manfaatkan Aturan Pengambilan Biji</h4>
+                        <p>Rencanakan gerakan Anda untuk mengakhiri giliran di lubang kosong milik Anda sendiri yang berhadapan dengan lubang lawan yang berisi banyak biji. Ini akan memungkinkan Anda untuk mengambil biji-biji tersebut.</p>
+                        
+                        <h4>3. Jaga Lubang Terakhir</h4>
+                        <p>Jika memungkinkan, jaga agar lubang terakhir Anda (paling dekat dengan lumbung) selalu berisi biji. Ini memudahkan Anda untuk mendapatkan giliran tambahan.</p>
+                        
+                        <h4>4. Perhatikan Lubang Lawan</h4>
+                        <p>Perhatikan lubang-lubang lawan yang berisi banyak biji dan coba untuk mengambilnya dengan strategi pengambilan biji.</p>
+                        
+                        <h4>5. Hindari Mengosongkan Semua Lubang</h4>
+                        <p>Jika semua lubang Anda kosong, permainan berakhir dan lawan bisa mengambil semua biji yang tersisa. Cobalah untuk selalu menyisakan setidaknya satu biji di salah satu lubang Anda.</p>
+                        
+                        <div class="instruction-note">
+                            <p><strong>Tip:</strong> Congklak adalah permainan yang membutuhkan latihan. Semakin sering Anda bermain, semakin baik Anda akan memahami strategi dan pola permainan.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Tab Aplikasi -->
+                    <div class="instructions-content" id="app-content">
+                        <h3>Cara Bermain di Aplikasi</h3>
+                        <ol>
+                            <li>Klik tombol "Permainan Baru" untuk memulai permainan baru.</li>
+                            <li>Klik salah satu lubang milik Anda yang berisi biji saat giliran Anda.</li>
+                            <li>Sistem akan secara otomatis mendistribusikan biji dan menerapkan aturan permainan.</li>
+                            <li>Gunakan tombol "Ganti Tampilan" untuk mengubah tema permainan.</li>
+                            <li>Klik tombol "Cara Bermain" kapan saja untuk melihat instruksi ini kembali.</li>
+                        </ol>
+                        
+                        <h3>Fitur Aplikasi</h3>
+                        
+                        <h4>Ganti Tampilan</h4>
+                        <p>Aplikasi ini menyediakan beberapa tema tampilan yang dapat Anda pilih sesuai preferensi Anda. Anda juga dapat menyesuaikan bentuk papan, jenis biji, dan kecepatan animasi.</p>
+                        
+                        <h4>Animasi</h4>
+                        <p>Aplikasi ini dilengkapi dengan animasi untuk memvisualisasikan pergerakan biji. Anda dapat menyesuaikan kecepatan animasi di menu "Ganti Tampilan".</p>
+                        
+                        <h4>Penyimpanan Preferensi</h4>
+                        <p>Preferensi tema dan pengaturan lainnya akan disimpan di browser Anda, sehingga akan tetap ada saat Anda membuka aplikasi kembali.</p>
+                        
+                        <div class="instruction-note">
+                            <p><strong>Catatan:</strong> Aplikasi ini dirancang untuk dimainkan oleh dua pemain di perangkat yang sama. Belum ada fitur untuk bermain melawan komputer atau pemain lain secara online.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal untuk Ganti Tampilan -->
+        <div id="themeModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Pilih Tampilan</h2>
+                <div class="theme-options">
+                    <div class="theme-preview-container">
+                        <!-- Theme options will be added by JavaScript -->
+                    </div>
+                    
+                    <!-- Seed Customization -->
+                    <div class="seed-customization">
+                        <h3>Kustomisasi Biji</h3>
+                        <div class="seed-options">
+                            <!-- Seed options will be added by JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <!-- Board Shape Customization -->
+                    <div class="board-customization">
+                        <h3>Bentuk Papan</h3>
+                        <div class="board-shape-options">
+                            <div class="board-shape-option active" data-shape="rectangle">
+                                <div class="board-shape-preview rectangle"></div>
+                            </div>
+                            <div class="board-shape-option" data-shape="oval">
+                                <div class="board-shape-preview oval"></div>
+                            </div>
+                            <div class="board-shape-option" data-shape="hexagon">
+                                <div class="board-shape-preview hexagon"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Animation Speed -->
+                    <div class="animation-speed">
+                        <h3>Kecepatan Animasi</h3>
+                        <input type="range" min="100" max="500" value="300" class="speed-slider" id="animationSpeedSlider">
+                        <div class="speed-value">Sedang (300ms)</div>
+                    </div>
+                    
+                    <button class="apply-button" id="applyThemeBtn">Terapkan Perubahan</button>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 Permainan Dhakon/Congklak</p>
+        </footer>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/theme-manager.js"></script>
+    <script src="js/instructions.js"></script>
+</body>
+</html>
+

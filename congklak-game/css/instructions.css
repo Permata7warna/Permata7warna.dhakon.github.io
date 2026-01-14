@@ -1,0 +1,238 @@
+/* instructions.css - Styling untuk instruksi cara bermain */
+
+.instructions-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.instructions h3 {
+    color: var(--primary-color);
+    margin-top: 25px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--secondary-color);
+    padding-bottom: 5px;
+}
+
+.instructions p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.instructions ol, .instructions ul {
+    margin-bottom: 20px;
+    padding-left: 25px;
+}
+
+.instructions li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.instructions-tabs {
+    display: flex;
+    border-bottom: 2px solid var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+.instructions-tab {
+    padding: 10px 20px;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.instructions-tab:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.instructions-tab.active {
+    border-bottom-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.instructions-content {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.instructions-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.instruction-image-container {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.instruction-image {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.instruction-caption {
+    margin-top: 10px;
+    font-style: italic;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+.instruction-highlight {
+    background-color: rgba(255, 255, 0, 0.2);
+    padding: 2px 5px;
+    border-radius: 3px;
+}
+
+.instruction-note {
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 15px;
+    border-left: 4px solid var(--primary-color);
+    margin: 20px 0;
+    border-radius: 0 5px 5px 0;
+}
+
+.instruction-step {
+    display: flex;
+    margin-bottom: 20px;
+    align-items: flex-start;
+}
+
+.step-number {
+    background-color: var(--primary-color);
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.step-content {
+    flex-grow: 1;
+}
+
+.instruction-video {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    display: block;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.instruction-button {
+    display: inline-block;
+    margin: 10px 0;
+    padding: 8px 15px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.instruction-button:hover {
+    background-color: var(--button-hover);
+    transform: translateY(-2px);
+}
+
+/* Animasi untuk demonstrasi */
+.demo-board {
+    width: 100%;
+    max-width: 500px;
+    margin: 20px auto;
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.demo-store {
+    width: 60px;
+    height: 150px;
+    background-color: var(--pit-color);
+    border: 3px solid var(--pit-border);
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.demo-pits {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.demo-row {
+    display: flex;
+    gap: 10px;
+}
+
+.demo-pit {
+    width: 40px;
+    height: 40px;
+    background-color: var(--pit-color);
+    border: 2px solid var(--pit-border);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.demo-seed {
+    width: 10px;
+    height: 10px;
+    background-color: var(--seed-color);
+    border-radius: 50%;
+    position: absolute;
+}
+
+.demo-active {
+    box-shadow: 0 0 10px rgba(255, 255, 0, 0.5);
+    animation: pulse 1s infinite;
+}
+
+.demo-highlight {
+    border: 2px solid yellow;
+    box-shadow: 0 0 10px rgba(255, 255, 0, 0.5);
+}
+
+/* Responsif */
+@media (max-width: 600px) {
+    .instructions-tab {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+    
+    .instruction-step {
+        flex-direction: column;
+    }
+    
+    .step-number {
+        margin-bottom: 10px;
+    }
+}
+

@@ -1,0 +1,659 @@
+/* style.css - Styling untuk permainan Dhakon/Congklak */
+
+/* Variabel CSS untuk tema default */
+:root {
+    --primary-color: #8b5a2b;
+    --secondary-color: #d2b48c;
+    --background-color: #f5f5dc;
+    --text-color: #333;
+    --pit-color: #a0522d;
+    --pit-border: #654321;
+    --seed-color: #654321;
+    --seed-highlight: #8b4513;
+    --button-color: #8b5a2b;
+    --button-text: #fff;
+    --button-hover: #654321;
+    --modal-bg: rgba(0, 0, 0, 0.7);
+    --modal-content-bg: #f5f5dc;
+}
+
+/* Reset dan styling dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: var(--button-color);
+    color: var(--button-text);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--button-hover);
+}
+
+/* Status permainan */
+.game-status {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.player-turn {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.game-message {
+    font-size: 1.2rem;
+    height: 30px;
+}
+
+/* Papan permainan */
+.board-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.board {
+    display: flex;
+    align-items: center;
+    background-color: var(--secondary-color);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Lumbung */
+.store {
+    width: 120px;
+    height: 300px;
+    background-color: var(--pit-color);
+    border: 5px solid var(--pit-border);
+    border-radius: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 0 20px;
+}
+
+.store-label {
+    position: absolute;
+    top: -30px;
+    font-weight: bold;
+    width: 150px;
+    text-align: center;
+}
+
+/* Lubang-lubang */
+.pits-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.pits {
+    display: flex;
+    gap: 15px;
+}
+
+.player-2 {
+    flex-direction: row-reverse;
+}
+
+.pit {
+    width: 80px;
+    height: 80px;
+    background-color: var(--pit-color);
+    border: 3px solid var(--pit-border);
+    border-radius: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.pit:hover {
+    transform: scale(1.05);
+}
+
+.seeds-count {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--modal-bg);
+}
+
+.modal-content {
+    background-color: var(--modal-content-bg);
+    margin: 10% auto;
+    padding: 30px;
+    border-radius: 10px;
+    width: 70%;
+    max-width: 800px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: var(--primary-color);
+}
+
+.instructions, .theme-options {
+    margin-top: 20px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 30px;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+/* Responsif */
+@media (max-width: 900px) {
+    .board {
+        flex-direction: column;
+        padding: 20px;
+    }
+    
+    .store {
+        width: 300px;
+        height: 100px;
+        margin: 20px 0;
+    }
+    
+    .store-label {
+        top: auto;
+        left: -150px;
+        transform: rotate(-90deg);
+    }
+    
+    #store-0 .store-label {
+        left: auto;
+        right: -150px;
+        transform: rotate(90deg);
+    }
+    
+    .pits-container {
+        flex-direction: row;
+        gap: 20px;
+    }
+    
+    .pits {
+        flex-direction: column;
+    }
+    
+    .player-2 {
+        flex-direction: column-reverse;
+    }
+}
+
+@media (max-width: 600px) {
+    .pit {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .menu {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .modal-content {
+        width: 90%;
+        padding: 20px;
+    }
+}
+
+
+/* Styling untuk biji */
+.seed {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--seed-color);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    z-index: 5;
+    transition: transform 0.2s ease;
+}
+
+.animated-seed {
+    position: fixed;
+    z-index: 1000;
+}
+
+/* Styling untuk pemain aktif */
+.active-player .pit {
+    box-shadow: 0 0 10px rgba(255, 255, 0, 0.5);
+    cursor: pointer;
+}
+
+.active-player .pit:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 255, 0, 0.7);
+}
+
+/* Animasi kemenangan */
+.winner {
+    animation: winner-pulse 1s infinite alternate;
+}
+
+@keyframes winner-pulse {
+    from {
+        box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    }
+    to {
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+    }
+}
+
+/* Animasi confetti */
+.confetti-container {
+    position: fixed;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #f00;
+    opacity: 0.8;
+    border-radius: 2px;
+    transform-origin: center;
+}
+
+@keyframes confetti-fall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(500px) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* Styling untuk tema-tema */
+.theme-option {
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.theme-option:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Tema Modern */
+.theme-modern {
+    --primary-color: #3498db;
+    --secondary-color: #ecf0f1;
+    --background-color: #f9f9f9;
+    --text-color: #2c3e50;
+    --pit-color: #3498db;
+    --pit-border: #2980b9;
+    --seed-color: #e74c3c;
+    --seed-highlight: #c0392b;
+    --button-color: #3498db;
+    --button-text: #fff;
+    --button-hover: #2980b9;
+    --modal-bg: rgba(0, 0, 0, 0.7);
+    --modal-content-bg: #f9f9f9;
+}
+
+/* Tema Alam */
+.theme-nature {
+    --primary-color: #27ae60;
+    --secondary-color: #daf7e8;
+    --background-color: #f0f9f4;
+    --text-color: #2c3e50;
+    --pit-color: #27ae60;
+    --pit-border: #219653;
+    --seed-color: #f39c12;
+    --seed-highlight: #d35400;
+    --button-color: #27ae60;
+    --button-text: #fff;
+    --button-hover: #219653;
+    --modal-bg: rgba(0, 0, 0, 0.7);
+    --modal-content-bg: #f0f9f4;
+}
+
+/* Tema Kerajaan */
+.theme-royal {
+    --primary-color: #9b59b6;
+    --secondary-color: #f5eef8;
+    --background-color: #f9f5fd;
+    --text-color: #34495e;
+    --pit-color: #9b59b6;
+    --pit-border: #8e44ad;
+    --seed-color: #f1c40f;
+    --seed-highlight: #f39c12;
+    --button-color: #9b59b6;
+    --button-text: #fff;
+    --button-hover: #8e44ad;
+    --modal-bg: rgba(0, 0, 0, 0.7);
+    --modal-content-bg: #f9f5fd;
+}
+
+/* Tema Gelap */
+.theme-dark {
+    --primary-color: #34495e;
+    --secondary-color: #2c3e50;
+    --background-color: #1a1a1a;
+    --text-color: #ecf0f1;
+    --pit-color: #34495e;
+    --pit-border: #2c3e50;
+    --seed-color: #e74c3c;
+    --seed-highlight: #c0392b;
+    --button-color: #3498db;
+    --button-text: #fff;
+    --button-hover: #2980b9;
+    --modal-bg: rgba(0, 0, 0, 0.8);
+    --modal-content-bg: #2c3e50;
+}
+
+
+/* Tambahan CSS untuk gambar latar belakang dan animasi */
+
+/* Latar belakang dengan gambar */
+.theme-default {
+    background-image: url('../assets/images/backgrounds/wood-texture-1.jpg');
+    background-repeat: repeat;
+    background-size: 400px;
+}
+
+.theme-modern {
+    background-image: url('../assets/images/backgrounds/wood-texture-2.jpg');
+    background-repeat: repeat;
+    background-size: 400px;
+}
+
+.theme-nature {
+    background-image: url('../assets/images/backgrounds/wood-texture-3.jpg');
+    background-repeat: repeat;
+    background-size: 400px;
+}
+
+.theme-royal {
+    background-image: url('../assets/images/backgrounds/wood-texture-4.jpg');
+    background-repeat: repeat;
+    background-size: 400px;
+}
+
+.theme-dark {
+    background-image: url('../assets/images/backgrounds/wood-texture-5.jpg');
+    background-repeat: repeat;
+    background-size: 400px;
+}
+
+/* Animasi tambahan */
+@keyframes float {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-5px) rotate(5deg);
+    }
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 5px rgba(255, 255, 0, 0.3);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 15px rgba(255, 255, 0, 0.6);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 5px rgba(255, 255, 0, 0.3);
+    }
+}
+
+@keyframes shake {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    10% { transform: translate(-2px, -2px) rotate(-1deg); }
+    20% { transform: translate(2px, -2px) rotate(1deg); }
+    30% { transform: translate(-2px, 2px) rotate(0deg); }
+    40% { transform: translate(2px, 2px) rotate(1deg); }
+    50% { transform: translate(-2px, -2px) rotate(-1deg); }
+    60% { transform: translate(2px, -2px) rotate(0deg); }
+    70% { transform: translate(-2px, 2px) rotate(-1deg); }
+    80% { transform: translate(-2px, -2px) rotate(1deg); }
+    90% { transform: translate(2px, -2px) rotate(0deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+/* Animasi untuk lubang aktif */
+.active-player .pit:hover {
+    animation: pulse 1s infinite;
+}
+
+/* Animasi untuk biji */
+.seed {
+    transition: all 0.3s ease;
+}
+
+.seed:hover {
+    transform: scale(1.2) rotate(10deg);
+    z-index: 10;
+}
+
+/* Animasi untuk distribusi biji */
+.animated-seed {
+    animation: float 1s infinite;
+}
+
+/* Animasi untuk lumbung pemenang */
+.winner {
+    animation: winner-pulse 1s infinite alternate, shake 5s infinite;
+}
+
+/* Styling untuk papan permainan dengan gambar latar belakang */
+.board {
+    background-image: url('../assets/images/backgrounds/wood-texture-1.jpg');
+    background-size: cover;
+    background-position: center;
+    border: 8px solid var(--pit-border);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Styling untuk lubang dengan efek 3D */
+.pit, .store {
+    background-image: radial-gradient(circle at 30% 30%, var(--pit-color) 0%, var(--pit-border) 100%);
+    box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.5), 0 5px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.pit:hover {
+    box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.7), 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Efek hover untuk tombol */
+button {
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Animasi untuk modal */
+.modal-content {
+    animation: modal-appear 0.3s ease-out;
+}
+
+@keyframes modal-appear {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Styling untuk tema */
+.theme-option {
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    border-radius: 10px;
+}
+
+.theme-option:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Animasi loading */
+.loading {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+.loading div {
+    position: absolute;
+    top: 33px;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+
+.loading div:nth-child(1) {
+    left: 8px;
+    animation: loading1 0.6s infinite;
+}
+
+.loading div:nth-child(2) {
+    left: 8px;
+    animation: loading2 0.6s infinite;
+}
+
+.loading div:nth-child(3) {
+    left: 32px;
+    animation: loading2 0.6s infinite;
+}
+
+.loading div:nth-child(4) {
+    left: 56px;
+    animation: loading3 0.6s infinite;
+}
+
+@keyframes loading1 {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes loading2 {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(24px, 0);
+    }
+}
+
+@keyframes loading3 {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0);
+    }
+}
+

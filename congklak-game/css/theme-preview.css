@@ -1,0 +1,337 @@
+/* theme-preview.css - Styling untuk preview tema */
+
+.theme-preview-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.theme-option {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    background-color: rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+}
+
+.theme-option:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.theme-option.active {
+    border-color: var(--primary-color);
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.theme-preview {
+    width: 100%;
+    height: 150px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.theme-preview-board {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 60%;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.theme-preview-store {
+    width: 20%;
+    height: 90%;
+    border-radius: 20px;
+}
+
+.theme-preview-pits {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 50%;
+    height: 90%;
+}
+
+.theme-preview-row {
+    display: flex;
+    justify-content: space-between;
+    height: 45%;
+}
+
+.theme-preview-pit {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.theme-info {
+    text-align: center;
+}
+
+.theme-info h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.2rem;
+}
+
+.theme-info p {
+    margin: 0;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Preview untuk tema default */
+.theme-default .theme-preview {
+    background-image: url('../assets/images/backgrounds/wood-texture-1.jpg');
+    background-size: cover;
+}
+
+.theme-default .theme-preview-board {
+    background-color: #d2b48c;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.theme-default .theme-preview-store {
+    background-color: #a0522d;
+    border: 2px solid #654321;
+}
+
+.theme-default .theme-preview-pit {
+    background-color: #a0522d;
+    border: 1px solid #654321;
+}
+
+/* Preview untuk tema modern */
+.theme-modern .theme-preview {
+    background-image: url('../assets/images/backgrounds/wood-texture-2.jpg');
+    background-size: cover;
+}
+
+.theme-modern .theme-preview-board {
+    background-color: #ecf0f1;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.theme-modern .theme-preview-store {
+    background-color: #3498db;
+    border: 2px solid #2980b9;
+}
+
+.theme-modern .theme-preview-pit {
+    background-color: #3498db;
+    border: 1px solid #2980b9;
+}
+
+/* Preview untuk tema nature */
+.theme-nature .theme-preview {
+    background-image: url('../assets/images/backgrounds/wood-texture-3.jpg');
+    background-size: cover;
+}
+
+.theme-nature .theme-preview-board {
+    background-color: #daf7e8;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.theme-nature .theme-preview-store {
+    background-color: #27ae60;
+    border: 2px solid #219653;
+}
+
+.theme-nature .theme-preview-pit {
+    background-color: #27ae60;
+    border: 1px solid #219653;
+}
+
+/* Preview untuk tema royal */
+.theme-royal .theme-preview {
+    background-image: url('../assets/images/backgrounds/wood-texture-4.jpg');
+    background-size: cover;
+}
+
+.theme-royal .theme-preview-board {
+    background-color: #f5eef8;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.theme-royal .theme-preview-store {
+    background-color: #9b59b6;
+    border: 2px solid #8e44ad;
+}
+
+.theme-royal .theme-preview-pit {
+    background-color: #9b59b6;
+    border: 1px solid #8e44ad;
+}
+
+/* Preview untuk tema dark */
+.theme-dark .theme-preview {
+    background-image: url('../assets/images/backgrounds/wood-texture-5.jpg');
+    background-size: cover;
+}
+
+.theme-dark .theme-preview-board {
+    background-color: #2c3e50;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.theme-dark .theme-preview-store {
+    background-color: #34495e;
+    border: 2px solid #2c3e50;
+}
+
+.theme-dark .theme-preview-pit {
+    background-color: #34495e;
+    border: 1px solid #2c3e50;
+}
+
+/* Styling untuk seed customization */
+.seed-customization {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.seed-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.seed-option {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.seed-option:hover {
+    transform: scale(1.05);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.seed-option.active {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px var(--primary-color);
+}
+
+.seed-option img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Styling untuk board customization */
+.board-customization {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.board-shape-options {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.board-shape-option {
+    width: 100px;
+    height: 60px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.board-shape-option:hover {
+    transform: scale(1.05);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.board-shape-option.active {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px var(--primary-color);
+}
+
+.board-shape-preview {
+    width: 80%;
+    height: 80%;
+    background-color: var(--pit-color);
+    border: 2px solid var(--pit-border);
+}
+
+.board-shape-preview.rectangle {
+    border-radius: 10px;
+}
+
+.board-shape-preview.oval {
+    border-radius: 50%;
+}
+
+.board-shape-preview.hexagon {
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+
+/* Styling untuk animation speed customization */
+.animation-speed {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.speed-slider {
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* Styling untuk tombol apply */
+.apply-button {
+    display: block;
+    margin: 20px auto 0;
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.apply-button:hover {
+    background-color: var(--button-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.apply-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
